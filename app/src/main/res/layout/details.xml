@@ -15,123 +15,25 @@
         android:layout_marginTop="0dp"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
-    <TextView
-        android:id="@+id/detail_txt_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/detail_button_back"
+        android:layout_width="68dp"
+        android:layout_height="51dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="120dp"
-        android:text="TextView" />
+        android:layout_marginTop="3dp"
+        android:background="@drawable/backward"
+        android:text="Button" />
 
     <TextView
-        android:id="@+id/detail_txt_pleadge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="163dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_backer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="217dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="266dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="316dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/detail_textView"
+        android:layout_width="match_parent"
+        android:layout_height="523dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="347dp"
-        android:text="TextView" />
+        android:layout_marginBottom="0dp"
+        android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/detail_txt_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="292dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="246dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="203dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="147dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="92dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_txt_12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="37dp"
-        android:text="TextView" />
 </RelativeLayout>

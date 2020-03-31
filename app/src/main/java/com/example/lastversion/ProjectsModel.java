@@ -161,4 +161,11 @@ public class ProjectsModel {
         this.url = url;
     }
 
+    public String toString() {
+        return "Project Name : " + getTitle() + "\n " + getAmtPledged() + "$ pledged \n" +"number of backers " + getNumBackers()
+                + "\n Blurb : " + getBlurb() + "Currency : " + getCurrency() +  "By : " + getBy() + "Country : " +getCountry() + "State : " +getState()
+                + " End time : " + getEndTime() +  "location : " + getLocation() + "Type : " + getType() + " Percentage funden : " +getPercentageFunded()
+                + "No of Days to Go : " + getSNo();
+    }
+
 }
