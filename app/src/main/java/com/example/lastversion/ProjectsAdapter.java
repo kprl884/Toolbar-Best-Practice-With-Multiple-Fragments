@@ -1,4 +1,4 @@
-/*package com.example.lastversion;
+package com.example.lastversion;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -52,7 +52,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
     public void onBindViewHolder(@NonNull ProjectsAdapter.ViewHolder holder, int position) {
         //TODO: NULL Check
             ProjectsModel currentProject = projectsModels.get(position);
-        // TODO: 31.03.2020 Null Check
+        // TODO: 31.03.2020 Null Check And Type Check
         holder.project_name.setText(projectsModels.get(position).getTitle());
         holder.project_pleadge.setText(projectsModels.get(position).getAmtPledged());
         holder.project_backers.setText(projectsModels.get(position).getNumBackers());
@@ -93,4 +93,3 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         }
     }
 }
-*/

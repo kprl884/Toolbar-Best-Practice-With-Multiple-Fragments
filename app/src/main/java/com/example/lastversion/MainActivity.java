@@ -23,7 +23,7 @@ import retrofit2.http.HEAD;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<ProjectsModel> projectsModels = new ArrayList<>();
-    //private ProjectsAdapter projectsAdapter;
+    private ProjectsAdapter projectsAdapter;
     private RecyclerView projects_recycler_view;
 
     TextView detail_txt_projectName;
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<ProjectsModel>>() {
             @Override
             public void onResponse(Call<List<ProjectsModel>> call, Response<List<ProjectsModel>> response) {
-                /*
                  projectsModels = new ArrayList<>(response.body());
                 projectsAdapter = new ProjectsAdapter(MainActivity.this, projectsModels);
                 projects_recycler_view.setAdapter(projectsAdapter);
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                 */
                 Toast.makeText(MainActivity.this, "succes", Toast.LENGTH_SHORT).show();
             }
 

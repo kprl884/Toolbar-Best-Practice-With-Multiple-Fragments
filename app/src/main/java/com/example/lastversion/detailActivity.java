@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+// TODO: 1.04.2020 Class isimlerinin buyuk harfle baslamasi lazim
 public class detailActivity extends Activity {
 
     Button detail_button_back;
