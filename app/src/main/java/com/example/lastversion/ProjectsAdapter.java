@@ -47,8 +47,16 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProjectsAdapter.ViewHolder holder, int position) {
+<<<<<<< HEAD
         //TODO: NULL Check
             ProjectsModel currentProject = projectsModels.get(position);
+=======
+        // TODO: 31.03.2020 Null Check 
+        holder.project_name.setText(projectsModels.get(position).getTitle());
+        holder.project_pleadge.setText(projectsModels.get(position).getAmtPledged());
+        holder.project_backers.setText(projectsModels.get(position).getNumBackers());
+        holder.project_sNo.setText(projectsModels.get(position).getSNo());
+>>>>>>> a1b15b8e3220eef2fd82709ce1c5f78e6330830a
 
             holder.project_name.setText(currentProject.getTitle());
             holder.project_pleadge.setText(currentProject.getAmtPledged());

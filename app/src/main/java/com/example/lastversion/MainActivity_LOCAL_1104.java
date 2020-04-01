@@ -38,21 +38,11 @@ public class MainActivity extends AppCompatActivity {
         projects_recyclerview.setLayoutManager(new LinearLayoutManager(this));
         getProjectResponse();
 
-<<<<<<< HEAD
-=======
-
-        detail_txt_projectName = (TextView) findViewById(R.id.detail_txt_name);
->>>>>>> a1b15b8e3220eef2fd82709ce1c5f78e6330830a
     }
 
     private void getProjectResponse() {
 
-<<<<<<< HEAD
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://starlord.hackerearth.com/")
-=======
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://starlord.hackerearth.com/")
->>>>>>> a1b15b8e3220eef2fd82709ce1c5f78e6330830a
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -68,24 +58,16 @@ public class MainActivity extends AppCompatActivity {
                 projectsAdapter.setOnItemClickListener(new ProjectsAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-<<<<<<< HEAD
                         Intent intent = new Intent(MainActivity.this, detailActivity.class);
                         String detail_toString = toString();
                         String detail_url = projectsModels.get(position).getUrl();
                         intent.putExtra("detail_url",detail_url);
                         intent.putExtra("detail_toString",detail_toString);
                         startActivity(intent);
-=======
-                        //here will full with project detail
->>>>>>> a1b15b8e3220eef2fd82709ce1c5f78e6330830a
                         String projectName = projectsModels.get(position).getTitle();
                         detail_txt_projectName.setText(projectName);
                     }
                 });
-<<<<<<< HEAD
-=======
-
->>>>>>> a1b15b8e3220eef2fd82709ce1c5f78e6330830a
                 //Toast.makeText(MainActivity.this, "Succesed", Toast.LENGTH_SHORT).show();
             }
 
