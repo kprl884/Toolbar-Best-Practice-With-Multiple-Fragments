@@ -49,6 +49,33 @@ public class ProjectsModel {
     @Expose
     private String url;
 
+    public ProjectsModel (String name, int amtPledged, String numBackers, int sNo) {
+        this.numBackers = numBackers;
+        this.sNo = sNo;
+        this.amtPledged = amtPledged;
+        this.title = name;
+    }
+
+    public ProjectsModel(String name, int amtPledged, String numBackers, int sNo, String blurb
+            , String by, String currency, String country, String endTime, String location
+            , int percentageFunded , String state, String type, String url
+    ){
+        this.numBackers = numBackers;
+        this.sNo = sNo;
+        this.amtPledged = amtPledged;
+        this.title = name;
+        this.blurb = blurb;
+        this.by = by;
+        this.currency = currency;
+        this.country = country;
+        this.endTime = endTime;
+        this.location = location;
+        this.percentageFunded = percentageFunded;
+        this.state = state;
+        this.type = type;
+        this.url = url;
+    }
+
     public Integer getSNo() {
         return sNo;
     }

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">LastVersion</string>
     <string name="auto_complete_text_view">Search by Name</string>
+    <string name="project_sNo">Project sNo</string>
+    <string name="project_name">Project Name</string>
+    <string name="project_backers">Project Backers</string>
+    <string name="project_pleadge">Project Pleadge</string>
 
 </resources>

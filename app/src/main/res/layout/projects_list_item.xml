@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <LinearLayout
@@ -12,27 +13,41 @@
             android:id="@+id/project_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            />
+            android:background="@android:color/system_notification_accent_color"
+            android:text="@string/project_name"
+            android:textColor="@android:color/background_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/project_pleadge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textStyle="italic"/>
+            android:background="@android:color/system_notification_accent_color"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:text="@string/project_pleadge" />
+
         <TextView
             android:id="@+id/project_backers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textStyle="italic"/>
+            android:background="@android:color/system_notification_accent_color"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:text="@string/project_backers" />
+
         <TextView
             android:id="@+id/project_sNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textStyle="italic"/>
+            android:background="@android:color/system_notification_accent_color"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            tools:text="@string/project_sNo" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

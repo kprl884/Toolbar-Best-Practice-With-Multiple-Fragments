@@ -18,24 +18,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.HEAD;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<ProjectsModel> projectsModels = new ArrayList<>();
     private ProjectsAdapter projectsAdapter;
     private RecyclerView projects_recycler_view;
-
+    private RecyclerView.LayoutManager mLayoutManager;
     TextView detail_txt_projectName;
-
+    RequestInterface interr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         projects_recycler_view = findViewById(R.id.projects_recyclerview);
+        projectsAdapter = new ProjectsAdapter(projectsModels);
         projects_recycler_view.setLayoutManager(new LinearLayoutManager(this));
-        getProjectResponse();
+
+        projectsModels.add((new ProjectsModel("name" , 1 ,"name ", 2)));
+
+        projects_recycler_view.setAdapter(projectsAdapter);
+        mLayoutManager = new LinearLayoutManager(this);
+        projects_recycler_view.setLayoutManager(mLayoutManager);
+
+        //getProjectResponse();
 
     }
 
@@ -53,20 +60,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ProjectsModel>> call, Response<List<ProjectsModel>> response) {
                  projectsModels = new ArrayList<>(response.body());
-                projectsAdapter = new ProjectsAdapter(MainActivity.this, projectsModels);
+                projectsAdapter = new ProjectsAdapter( projectsModels);
                 projects_recycler_view.setAdapter(projectsAdapter);
-                projectsAdapter.setOnItemClickListener(new ProjectsAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Intent intent = new Intent(MainActivity.this, detailActivity.class);
-                        String detail_toString = toString();
-                        String detail_url = projectsModels.get(position).getUrl();
-                        intent.putExtra("detail_url",detail_url);
-                        intent.putExtra("detail_toString",detail_toString);
-                        startActivity(intent);
-                        String projectName = projectsModels.get(position).getTitle();
-                        detail_txt_projectName.setText(projectName);
-                    }
+                projectsAdapter.setOnItemClickListener(position -> {
+                    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                    String detail_toString = toString();
+                    String detail_url = projectsModels.get(position).getUrl();
+                    intent.putExtra("detail_url",detail_url);
+                    intent.putExtra("detail_toString",detail_toString);
+                    startActivity(intent);
+                    String projectName = projectsModels.get(position).getTitle();
+                    detail_txt_projectName.setText(projectName);
                 });
 
                 Toast.makeText(MainActivity.this, "succes", Toast.LENGTH_SHORT).show();

@@ -18,8 +18,8 @@ import retrofit2.http.HEAD;
 
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHolder> {
 
-    private ArrayList<ProjectsModel> projectsModels = new ArrayList<>();
-    private Context context;
+    private ArrayList<ProjectsModel> projectsModels;
+
     private OnItemClickListener mListener;
 
 
@@ -33,10 +33,9 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
     }
 
 
-    public ProjectsAdapter(Context context, ArrayList<ProjectsModel> projectsModels){
+    public ProjectsAdapter(ArrayList<ProjectsModel> projectsModels){
 
         this.projectsModels = projectsModels;
-        this.context = context;
     }
 
     @NonNull
@@ -54,15 +53,10 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
             ProjectsModel currentProject = projectsModels.get(position);
         // TODO: 31.03.2020 Null Check And Type Check
         holder.project_name.setText(projectsModels.get(position).getTitle());
-        holder.project_pleadge.setText(projectsModels.get(position).getAmtPledged());
+        holder.project_pleadge.setText(Integer.toString(projectsModels.get(position).getAmtPledged()));
         holder.project_backers.setText(projectsModels.get(position).getNumBackers());
-        holder.project_sNo.setText(projectsModels.get(position).getSNo());
+        holder.project_sNo.setText(Integer.toString(projectsModels.get(position).getSNo()));
 
-
-            holder.project_name.setText(currentProject.getTitle());
-            holder.project_pleadge.setText(currentProject.getAmtPledged());
-            holder.project_backers.setText(currentProject.getNumBackers());
-            holder.project_sNo.setText(currentProject.getSNo());
     }
 
     @Override
@@ -74,19 +68,16 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         private TextView project_name, project_pleadge, project_backers, project_sNo;
         public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
-            project_name = (TextView)itemView.findViewById(R.id.project_name);
-            project_pleadge = (TextView)itemView.findViewById(R.id.project_pleadge);
-            project_backers = (TextView)itemView.findViewById(R.id.project_backers);
-            project_sNo = (TextView)itemView.findViewById(R.id.project_sNo);
+            project_name = itemView.findViewById(R.id.project_name);
+            project_pleadge = itemView.findViewById(R.id.project_pleadge);
+            project_backers = itemView.findViewById(R.id.project_backers);
+            project_sNo = itemView.findViewById(R.id.project_sNo);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
-                        }
+            itemView.setOnClickListener(view -> {
+                if(listener != null){
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        listener.onItemClick(position);
                     }
                 }
             });
