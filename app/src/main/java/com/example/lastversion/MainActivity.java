@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         projectsAdapter = new ProjectsAdapter(projectsModels);
         projects_recycler_view.setLayoutManager(new LinearLayoutManager(this));
 
-        projectsModels.add((new ProjectsModel("name" , 1 ,"name ", 2)));
-
-        projects_recycler_view.setAdapter(projectsAdapter);
+        //projectsModels.add((new ProjectsModel("name" , 1 ,"name ", 2)));
+        getProjectResponse();
+        //projects_recycler_view.setAdapter(projectsAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         projects_recycler_view.setLayoutManager(mLayoutManager);
 
-        //getProjectResponse();
+        getProjectResponse();
 
     }
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<ProjectsModel>>() {
             @Override
             public void onResponse(Call<List<ProjectsModel>> call, Response<List<ProjectsModel>> response) {
-                 projectsModels = new ArrayList<>(response.body());
+                projectsModels = new ArrayList<>(response.body());
                 projectsAdapter = new ProjectsAdapter( projectsModels);
                 projects_recycler_view.setAdapter(projectsAdapter);
                 projectsAdapter.setOnItemClickListener(position -> {
