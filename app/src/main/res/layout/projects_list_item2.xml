@@ -6,43 +6,63 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     app:cardCornerRadius="5dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:orientation="vertical">
-        
-        <TextView
-            android:id="@+id/project_name"
-            android:layout_width="wrap_content"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/project_button"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/process"
+            android:padding="10dp"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Example Text"
-            android:textColor="@android:color/holo_orange_light"/>
-        <TextView
-            android:id="@+id/project_pleadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:text="Example Text"/>
-        <TextView
-            android:id="@+id/project_backers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:text="Example Text"/>
-        <TextView
-            android:id="@+id/project_sNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:text="Example Text"/>
-        
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/project_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/example_text"
+                android:textColor="@android:color/holo_orange_light"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/project_pleadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="@string/example_text"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/project_backers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="@string/example_text"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/project_sNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="@string/example_text"/>
+
+        </LinearLayout>
+
     </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>

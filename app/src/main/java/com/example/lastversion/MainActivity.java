@@ -19,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements ProjectsAdapter.OnProjectListener{
+public class MainActivity extends AppCompatActivity{
 
     ArrayList<ProjectsModel> projectsModels = new ArrayList<>();
     private ProjectsAdapter projectsAdapter;
@@ -62,7 +62,19 @@ public class MainActivity extends AppCompatActivity implements ProjectsAdapter.O
                 projectsModels = new ArrayList<>(response.body());
                 projectsAdapter = new ProjectsAdapter(projectsModels);
                 projects_recycler_view.setAdapter(projectsAdapter);
-                projectsAdapter.notifyDataSetChanged();
+
+                projectsAdapter.setOnItemClickListener(new ProjectsAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                        String detail_toString = toString();
+                        String detail_url = projectsModels.get(position).getUrl();
+                        intent.putExtra("detail_url",detail_url);
+                        intent.putExtra("detail_toString",detail_toString);
+                        startActivity(new Intent(MainActivity.this,DetailActivity.class));
+                    }
+                });
+
                 /*
                 projectsAdapter.setOnItemClickListener(position -> {
                     Intent intent = new Intent(MainActivity.this, DetailActivity.class);
@@ -85,11 +97,11 @@ public class MainActivity extends AppCompatActivity implements ProjectsAdapter.O
             }
         });
     }
-
+    /*
     @Override
     public void OnProjectClick(int position) {
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         projectsModels.get(position);
         startActivity(intent);
-    }
+    }*/
 }

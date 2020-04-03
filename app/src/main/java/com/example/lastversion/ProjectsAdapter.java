@@ -3,6 +3,7 @@ package com.example.lastversion;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +17,15 @@ import retrofit2.Callback;
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHolder> {
 
     private ArrayList<ProjectsModel> projectsModels;
-    private OnProjectListener mOnNoteListener;
+    private OnItemClickListener mListener;
 
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener (OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public ProjectsAdapter(ArrayList<ProjectsModel> projectsModels){
         //mOnNoteListener = (OnProjectListener) onProjectListener;
@@ -30,7 +38,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.projects_list_item2
         ,parent, false);
 
-        return new ProjectsAdapter.ViewHolder(view, mOnNoteListener);
+        return new ProjectsAdapter.ViewHolder(view, mListener);
     }
 
     @Override
@@ -44,7 +52,6 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         holder.project_sNo.setText("No. of Days to GO - " + Integer.toString(projectsModels.get(position).getSNo()));
 
 
-
     }
 
     @Override
@@ -52,28 +59,32 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         return projectsModels.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    //For now static, later control this line
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView project_name, project_pleadge, project_backers, project_sNo;
-        OnProjectListener onProjectListener;
+        private Button project_button;
 
-        public ViewHolder(@NonNull View itemView, OnProjectListener onProjectListener) {
+
+        public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
+            project_button = itemView.findViewById(R.id.project_button);
             project_name = itemView.findViewById(R.id.project_name);
             project_pleadge = itemView.findViewById(R.id.project_pleadge);
             project_backers = itemView.findViewById(R.id.project_backers);
             project_sNo = itemView.findViewById(R.id.project_sNo);
 
-            this.onProjectListener = onProjectListener;
-            itemView.setOnClickListener(this);
-        }
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
-        @Override
-        public void onClick(View v) {
-            onProjectListener.OnProjectClick(getAdapterPosition());
         }
-    }
-
-    public interface OnProjectListener{
-        void OnProjectClick(int position);
     }
 }

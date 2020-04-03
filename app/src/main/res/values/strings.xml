@@ -5,5 +5,6 @@
     <string name="project_name">Project Name</string>
     <string name="project_backers">Project Backers</string>
     <string name="project_pleadge">Project Pleadge</string>
+    <string name="example_text">Example Text</string>
 
 </resources>
