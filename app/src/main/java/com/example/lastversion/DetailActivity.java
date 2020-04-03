@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 // TODO: 1.04.2020 Class isimlerinin buyuk harfle baslamasi lazim
-public class DetailActivity extends Activity {
+public class DetailActivity extends AppCompatActivity {
 
     Button detail_button_back;
     ImageView detail_imageView_url;
