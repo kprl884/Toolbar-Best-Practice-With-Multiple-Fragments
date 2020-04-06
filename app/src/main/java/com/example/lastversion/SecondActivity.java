@@ -23,6 +23,7 @@ public class SecondActivity extends AppCompatActivity {
      * 1, 3 Ve 5. textviewlar sayfaya esit olarak dagilacak(chain kullanabilirsin).
      * Constraint Layout ile yapilacak
      * Activity ismi second olmayacak. Daha aciklayici olmasi lazim.
+     * gitignore dosyasini android formatinda guncelle.
      */
 
 
