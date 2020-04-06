@@ -1,35 +1,32 @@
 package com.example.lastversion;
 
+import android.app.Activity;
+import android.content.Context;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
-import retrofit2.Callback;
 
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHolder> {
-
     private ArrayList<ProjectsModel> projectsModels;
-    private OnItemClickListener mListener;
+    Context context;
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
+    public OnMyAdapterItemClickListener onMyAdapterItemClickListener;
 
-    public void setOnItemClickListener (OnItemClickListener listener) {
-        mListener = listener;
-    }
-
-    public ProjectsAdapter(ArrayList<ProjectsModel> projectsModels){
-        //mOnNoteListener = (OnProjectListener) onProjectListener;
+    public ProjectsAdapter(ArrayList<ProjectsModel> projectsModels,Context context, OnMyAdapterItemClickListener onMyAdapterItemClickListener){
         this.projectsModels = projectsModels;
+        context = context;
+        this.onMyAdapterItemClickListener = onMyAdapterItemClickListener;
     }
 
     @NonNull
@@ -38,7 +35,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.projects_list_item2
         ,parent, false);
 
-        return new ProjectsAdapter.ViewHolder(view, mListener);
+        return new ProjectsAdapter.ViewHolder(view);
     }
 
     @Override
@@ -47,10 +44,18 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
             //ProjectsModel currentProject = projectsModels.get(position);
         // TODO: 31.03.2020 Null Check And Type Check
         holder.project_name.setText(projectsModels.get(position).getTitle());
-        holder.project_pleadge.setText("Pleadge - $ " + Integer.toString(projectsModels.get(position).getAmtPledged()));
-        holder.project_backers.setText("Backers - " + projectsModels.get(position).getNumBackers());
-        holder.project_sNo.setText("No. of Days to GO - " + Integer.toString(projectsModels.get(position).getSNo()));
+        String stringPledged = Integer.toString(projectsModels.get(position).getAmtPledged());
+        holder.project_pleadge.append("Pleadge - $ " + stringPledged);
+        holder.project_backers.append("Backers - " + projectsModels.get(position).getNumBackers());
+        String stringSNo = Integer.toString(projectsModels.get(position).getSNo());
+        holder.project_sNo.append("No. of Days to GO - " + stringSNo);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMyAdapterItemClickListener.onItemClicked(position);
+            }
+        });
 
     }
 
@@ -59,31 +64,20 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         return projectsModels.size();
     }
 
+
+
     //For now static, later control this line
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public  class ViewHolder extends RecyclerView.ViewHolder{
         private TextView project_name, project_pleadge, project_backers, project_sNo;
         private Button project_button;
 
-
-        public ViewHolder(@NonNull View itemView, OnItemClickListener listener) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            project_button = itemView.findViewById(R.id.project_button);
+            //project_button = itemView.findViewById(R.id.project_button);
             project_name = itemView.findViewById(R.id.project_name);
             project_pleadge = itemView.findViewById(R.id.project_pleadge);
             project_backers = itemView.findViewById(R.id.project_backers);
             project_sNo = itemView.findViewById(R.id.project_sNo);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
-                        }
-                    }
-                }
-            });
 
         }
     }
