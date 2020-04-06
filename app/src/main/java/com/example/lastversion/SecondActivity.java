@@ -22,8 +22,8 @@ public class SecondActivity extends AppCompatActivity {
         String msj_fromMainActivity = intent.getStringExtra("details");
         detail_txtView.setText(msj_fromMainActivity);
 
-        //String detail_url = intent.getStringExtra("detail_url");
-        //new DownloadImageTask(findViewById(R.id.detail_url_image)).execute("detail_url");
+        String detail_url = intent.getStringExtra("detail_url");
+        new DownloadImageTask(findViewById(R.id.detail_url_image)).execute("detail_url");
 
         detail_button_back = findViewById(R.id.detail_button_back);
         detail_button_back.setOnClickListener(view -> {
