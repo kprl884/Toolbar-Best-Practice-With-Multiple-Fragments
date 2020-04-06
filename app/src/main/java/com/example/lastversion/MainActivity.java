@@ -22,6 +22,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * TODO LIST
+ * Image icin glide kutuphanesi kullanilacak.
+ */
 public class MainActivity extends AppCompatActivity{
 
     ArrayList<ProjectsModel> projectsModels;
@@ -75,16 +79,15 @@ public class MainActivity extends AppCompatActivity{
                 projectsModels = new ArrayList<>(response.body());
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.this);
                 projects_recycler_view.setLayoutManager(mLayoutManager);
-                projectsAdapter = new ProjectsAdapter(projectsModels, MainActivity.this, new OnMyAdapterItemClickListener() {
-                    @Override
-                    public void onItemClicked(int pos) {
+                projectsAdapter = new ProjectsAdapter(projectsModels, MainActivity.this, pos -> {
+                    // TODO: 6.04.2020 Buradan string olarak degil obje olarak gondermen lazim.
+                    //Bu obje de parcelable olacak.
+                    //Not: Neden parcelable kullanman gerektigini arastir
+                   Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                   String stringDetail = projectsModels.get(pos).toString();
+                   intent.putExtra("details", stringDetail);
 
-                       Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                       String stringDetail = projectsModels.get(pos).toString();
-                       intent.putExtra("details", stringDetail);
-
-                       startActivity(intent);
-                    }
+                   startActivity(intent);
                 });
 
                 projects_recycler_view.setHasFixedSize(true);

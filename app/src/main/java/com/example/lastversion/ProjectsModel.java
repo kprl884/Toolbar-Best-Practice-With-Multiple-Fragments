@@ -1,8 +1,5 @@
 package com.example.lastversion;
 
-import android.content.Context;
-import android.content.Intent;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

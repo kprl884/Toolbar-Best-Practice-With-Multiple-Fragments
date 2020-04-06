@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
-
+<!--detail_btn_back-->
+<!--detail_label_country-->
+<!--detail_tv_country-->
 
     <Button
         android:id="@+id/detail_button_back"
