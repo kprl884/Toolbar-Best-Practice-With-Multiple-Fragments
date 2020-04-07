@@ -1,9 +1,12 @@
 package com.example.lastversion;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ProjectsModel {
+public class ProjectsModel implements Parcelable {
 
 
     @SerializedName("s.no")
@@ -48,6 +51,8 @@ public class ProjectsModel {
     @SerializedName("url")
     @Expose
     private String url;
+
+
 
     public ProjectsModel (String name, int amtPledged, String numBackers, int sNo) {
         this.numBackers = numBackers;
@@ -198,4 +203,55 @@ public class ProjectsModel {
                 + "No of Days to Go : " + getSNo();
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.sNo);
+        dest.writeValue(this.amtPledged);
+        dest.writeString(this.blurb);
+        dest.writeString(this.by);
+        dest.writeString(this.country);
+        dest.writeString(this.currency);
+        dest.writeString(this.endTime);
+        dest.writeString(this.location);
+        dest.writeValue(this.percentageFunded);
+        dest.writeString(this.numBackers);
+        dest.writeString(this.state);
+        dest.writeString(this.title);
+        dest.writeString(this.type);
+        dest.writeString(this.url);
+    }
+
+    protected ProjectsModel(Parcel in) {
+        this.sNo = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.amtPledged = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.blurb = in.readString();
+        this.by = in.readString();
+        this.country = in.readString();
+        this.currency = in.readString();
+        this.endTime = in.readString();
+        this.location = in.readString();
+        this.percentageFunded = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.numBackers = in.readString();
+        this.state = in.readString();
+        this.title = in.readString();
+        this.type = in.readString();
+        this.url = in.readString();
+    }
+
+    public static final Parcelable.Creator<ProjectsModel> CREATOR = new Parcelable.Creator<ProjectsModel>() {
+        @Override
+        public ProjectsModel createFromParcel(Parcel source) {
+            return new ProjectsModel(source);
+        }
+
+        @Override
+        public ProjectsModel[] newArray(int size) {
+            return new ProjectsModel[size];
+        }
+    };
 }

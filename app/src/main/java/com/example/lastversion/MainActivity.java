@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -38,28 +35,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         projects_recycler_view = findViewById(R.id.projects_recyclerview);
-        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        //projects_recycler_view.setLayoutManager(mLayoutManager);
-
-        //projectsModels = new ArrayList<>();
-        //  projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //  projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //   projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //   projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //  projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //  projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        // projectsModels.add(new ProjectsModel("name",1,"asad",1));
-        //getProjectResponse();
-
-
-        //projectsAdapter = new ProjectsAdapter(projectsModels);
-        // projects_recycler_view.setAdapter(projectsAdapter);
         getProjectResponse();
-
-
-
-
-
     }
 
     private void getProjectResponse() {
@@ -80,12 +56,9 @@ public class MainActivity extends AppCompatActivity{
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.this);
                 projects_recycler_view.setLayoutManager(mLayoutManager);
                 projectsAdapter = new ProjectsAdapter(projectsModels, MainActivity.this, pos -> {
-                    // TODO: 6.04.2020 Buradan string olarak degil obje olarak gondermen lazim.
-                    //Bu obje de parcelable olacak.
-                    //Not: Neden parcelable kullanman gerektigini arastir
-                   Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                   String stringDetail = projectsModels.get(pos).toString();
-                   intent.putExtra("details", stringDetail);
+
+                   Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                   intent.putExtra("projectObject", projectsModels.get(pos));
 
                    startActivity(intent);
                 });

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHolder> {
+public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.DetailViewHolder> {
     private ArrayList<ProjectsModel> projectsModels;
     private Context context;
 
@@ -27,15 +27,15 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
 
     @NonNull
     @Override
-    public ProjectsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProjectsAdapter.DetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.projects_list_item2
         ,parent, false);
 
-        return new ProjectsAdapter.ViewHolder(view);
+        return new ProjectsAdapter.DetailViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProjectsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProjectsAdapter.DetailViewHolder holder, int position) {
 
         ProjectsModel projectsModel = projectsModels.get(position);
         holder.project_name.setText(projectsModel.getTitle());
@@ -54,18 +54,11 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ViewHo
         return projectsModels.size();
     }
 
-
-
-    //For now static, later control this line
-    // TODO: 6.04.2020 ViewHolder ismi yine ne oldugunu anlatmiyor. Buraya DetailViewHolder diyebilirsin.
-
-    public  class ViewHolder extends RecyclerView.ViewHolder{
+    public  class DetailViewHolder extends RecyclerView.ViewHolder{
         private TextView project_name, project_pleadge, project_backers, project_sNo;
-        private Button project_button;
 
-        public ViewHolder(@NonNull View itemView) {
+        public DetailViewHolder(@NonNull View itemView) {
             super(itemView);
-            //project_button = itemView.findViewById(R.id.project_button);
             project_name = itemView.findViewById(R.id.project_name);
             project_pleadge = itemView.findViewById(R.id.project_pleadge);
             project_backers = itemView.findViewById(R.id.project_backers);

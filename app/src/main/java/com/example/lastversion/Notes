@@ -1,0 +1,21 @@
+// TODO: 6.04.2020 Buradan string olarak degil obje olarak gondermen lazim.
+                    //Bu obje de parcelable olacak.
+                    //Not: Neden parcelable kullanman gerektigini arastir
+
+Altta senin secegin 3 tane bilgiyi onunde label olacak sekilde goruntuleyecek
+     * Ornek:
+     * (1. Textview) by: (2.Textview)"Tyrone Wells & Broken Eagle, LLC"
+     * (3. Textview) country: (4.Textview)"US"
+     * (5. Textview) currency: (6.Textview)"usd"
+     * 1, 3 Ve 5. textviewlar sayfaya esit olarak dagilacak(chain kullanabilirsin).
+     * Constraint Layout ile yapilacak
+
+      /**
+          * TODO LIST
+          *
+          * gitignore dosyasini android formatinda guncelle.
+          */
+
+          <!--detail_btn_back-->
+              <!--detail_label_country-->
+              <!--detail_tv_country-->
