@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,6 +52,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
     public int getItemCount() {
         return projectsModels.size();
     }
+
 
     public  class DetailViewHolder extends RecyclerView.ViewHolder{
         private TextView project_name, project_pleadge, project_backers, project_sNo;

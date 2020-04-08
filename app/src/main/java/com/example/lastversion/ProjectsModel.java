@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Comparator;
+
 public class ProjectsModel implements Parcelable {
 
 
@@ -254,4 +256,7 @@ public class ProjectsModel implements Parcelable {
             return new ProjectsModel[size];
         }
     };
+
+
+
 }

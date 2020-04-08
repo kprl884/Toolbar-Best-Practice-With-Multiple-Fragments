@@ -7,9 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,15 +33,22 @@ public class MainActivity extends AppCompatActivity{
 
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
+    ArrayAdapter<ProjectsModel> adapter;
     private RecyclerView projects_recycler_view;
+    AutoCompleteTextView autoCompleteTextView;
+    Button btn_sort, btn_filter, btn_search;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        projects_recycler_view = findViewById(R.id.projects_recyclerview);
+
+        projects_recycler_view = findViewById(R.id.projects_recyclerV);
         getProjectResponse();
+        //
+
     }
 
     private void getProjectResponse() {
@@ -51,8 +64,10 @@ public class MainActivity extends AppCompatActivity{
         call.enqueue(new Callback<List<ProjectsModel>>() {
             @Override
             public void onResponse(Call<List<ProjectsModel>> call, Response<List<ProjectsModel>> response) {
+
                 assert response.body() != null;
                 projectsModels = new ArrayList<>(response.body());
+
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.this);
                 projects_recycler_view.setLayoutManager(mLayoutManager);
                 projectsAdapter = new ProjectsAdapter(projectsModels, MainActivity.this, pos -> {
