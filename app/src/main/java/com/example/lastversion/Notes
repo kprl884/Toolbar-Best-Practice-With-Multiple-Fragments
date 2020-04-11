@@ -1,21 +1,17 @@
-// TODO: 6.04.2020 Buradan string olarak degil obje olarak gondermen lazim.
-                    //Bu obje de parcelable olacak.
-                    //Not: Neden parcelable kullanman gerektigini arastir
+xml dosyalarını linear layoutları sildim constraint Layouta göre düzenledim
 
-Altta senin secegin 3 tane bilgiyi onunde label olacak sekilde goruntuleyecek
-     * Ornek:
-     * (1. Textview) by: (2.Textview)"Tyrone Wells & Broken Eagle, LLC"
-     * (3. Textview) country: (4.Textview)"US"
-     * (5. Textview) currency: (6.Textview)"usd"
-     * 1, 3 Ve 5. textviewlar sayfaya esit olarak dagilacak(chain kullanabilirsin).
-     * Constraint Layout ile yapilacak
+String -> Translations Editor -> tr strings eklendi
 
-      /**
-          * TODO LIST
-          *
-          * gitignore dosyasini android formatinda guncelle.
-          */
+ignore  test.py ekleniyor ignore olarak ama Notes ekleyemedim
+app/main/src/java/com/example/lastversion/Notes yapıyorum
 
-          <!--detail_btn_back-->
-              <!--detail_label_country-->
-              <!--detail_tv_country-->
+Create drawables from a large scale image automatically
+için Downloading the plugin
+     Open Android studio. Go to File>Settings>Plugins>Browse Repositories.
+     Search for “Android Drawable Importer” in the search box
+
+bu plugin ile otomatik boyutlanıyor resimler
+
+        app:layout_constraintHorizontal_bias="0"
+
+        bias ile bileşenlerin sağı ve solu arasındaki boşluğu orantılayabiliyoruz

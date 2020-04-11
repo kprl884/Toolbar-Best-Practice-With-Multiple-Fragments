@@ -14,7 +14,6 @@ public class DetailActivity extends AppCompatActivity {
             , detail_tv_location, detail_layout_state, detail_tv_state;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

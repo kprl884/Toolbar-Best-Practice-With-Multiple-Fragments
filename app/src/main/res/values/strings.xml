@@ -6,5 +6,6 @@
     <string name="project_backers">Project Backers</string>
     <string name="project_pleadge">Project Pleadge</string>
     <string name="example_text">Example Text</string>
+    <string name="example_string">Example String</string>
 
 </resources>

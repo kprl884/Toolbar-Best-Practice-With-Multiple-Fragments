@@ -25,18 +25,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * TODO LIST
- * Image icin glide kutuphanesi kullanilacak.
- */
 public class MainActivity extends AppCompatActivity{
 
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
-    ArrayAdapter<ProjectsModel> adapter;
     private RecyclerView projects_recycler_view;
-    AutoCompleteTextView autoCompleteTextView;
-    Button btn_sort, btn_filter, btn_search;
 
 
     @Override
@@ -44,11 +37,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         projects_recycler_view = findViewById(R.id.projects_recyclerV);
         getProjectResponse();
-        //
-
     }
 
     private void getProjectResponse() {
