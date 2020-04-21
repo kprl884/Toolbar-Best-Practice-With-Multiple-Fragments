@@ -8,4 +8,7 @@
     <string name="project_name">Proje ismi</string>
     <string name="project_pleadge">Proje Sözü</string>
     <string name="project_sNo">Proje tarihi</string>
+    <string name="lbl_blurb">Blurb</string>
+    <string name="lbl_location">Konum</string>
+    <string name="lbl_state">State</string>
 </resources>

@@ -7,5 +7,8 @@
     <string name="project_pleadge">Project Pleadge</string>
     <string name="example_text">Example Text</string>
     <string name="example_string">Example String</string>
+    <string name="lbl_blurb">Blurb</string>
+    <string name="lbl_location">Location</string>
+    <string name="lbl_state">State</string>
 
 </resources>

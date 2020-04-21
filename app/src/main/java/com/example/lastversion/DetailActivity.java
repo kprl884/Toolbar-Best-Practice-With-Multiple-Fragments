@@ -20,7 +20,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         detail_layout_title = findViewById(R.id.detail_layout_title);
-        detail_layout_blurb = findViewById(R.id.detail_layout_blurb);
+        detail_layout_blurb = findViewById(R.id.detail_tv_lbl_blurb);
         detail_tv_blurb = findViewById(R.id.detail_tv_blurb);
         detail_layout_location = findViewById(R.id.detail_layout_location);
         detail_tv_location = findViewById(R.id.detail_tv_location);
@@ -32,13 +32,13 @@ public class DetailActivity extends AppCompatActivity {
         ProjectsModel projectsModel = intent.getParcelableExtra("projectObject");
 
 
-        detail_layout_blurb.setText("Blurb : ");
-        detail_tv_blurb.setText(projectsModel.getBlurb());
+        String blurb = projectsModel.getBlurb();
+        if (blurb != null) {
+            detail_tv_blurb.setText(blurb);
+        }
 
-        detail_layout_location.setText("Location : ");
         detail_tv_location.setText(projectsModel.getLocation());
 
-        detail_layout_state.setText("State : ");
         detail_tv_state.setText(projectsModel.getState());
 
         detail_layout_title.setText(projectsModel.getTitle());

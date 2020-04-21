@@ -1,7 +1,5 @@
 package com.example.lastversion;
 
-public interface OnMyAdapterItemClickListener
-{
+public interface OnMyAdapterItemClickListener {
     void onItemClicked(int pos);
-
 }

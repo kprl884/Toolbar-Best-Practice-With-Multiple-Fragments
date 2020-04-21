@@ -1,0 +1,24 @@
+Yeni notlar
+1- Toolbar, ActionBar ve bunun üzerindeki itemlar nedir ogren ve hem ana sayfaya hem de detay sayfasina toolbar uygula.
+Detaydaki back butonu toolbar'a gececek. Proje adi da toolbar da title olarak gorunecek.
+2 - Detaydaki kayma problemi duzeltilecek
+3 - Xml isimlendirmelerinde formatlar soyle olacak:
+Activity: activity_...
+Fragment: fragment_...
+Adapter: adapter_...
+such as: adapter_project
+4- Detaydaki textview isimlendirmeleri duzeltilecek
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+//Kisisel notlar
+app:layout_constraintHorizontal_bias="0"
+
+bias ile bileşenlerin sağı ve solu arasındaki boşluğu orantılayabiliyoruz
