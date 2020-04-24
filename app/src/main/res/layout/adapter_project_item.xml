@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,20 +24,19 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="@string/example_text"
                 android:textColor="@android:color/holo_orange_light"/>
-            <TextView
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/project_name"
-                app:layout_constraintBottom_toTopOf="@id/project_backers"
-                android:layout_marginStart="5dp"
-                android:id="@+id/project_pleadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textStyle="bold"
 
-                android:text="@string/example_text"/>
+        <TextView
+            android:id="@+id/project_pleadge"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/project_backers"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/project_name" />
             <TextView
                 app:layout_constraintTop_toBottomOf="@id/project_pleadge"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="@string/example_text"/>
+                />
             <TextView
                 app:layout_constraintTop_toBottomOf="@id/project_backers"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="@string/example_text"/>
+                />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

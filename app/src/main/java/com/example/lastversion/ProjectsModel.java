@@ -84,8 +84,6 @@ public class ProjectsModel implements Parcelable {
     }
 
 
-
-
     public Integer getSNo() {
         return sNo;
     }

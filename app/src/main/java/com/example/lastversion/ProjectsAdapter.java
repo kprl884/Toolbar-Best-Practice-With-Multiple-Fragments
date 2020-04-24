@@ -24,7 +24,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
     @NonNull
     @Override
     public ProjectsAdapter.DetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.projects_list_item2
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_project_item
                 , parent, false);
 
         return new ProjectsAdapter.DetailViewHolder(view);
@@ -35,14 +35,12 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
 
         ProjectsModel projectsModel = projectsModels.get(position);
         holder.project_name.setText(projectsModel.getTitle());
-        String stringPledged = Integer.toString(projectsModel.getAmtPledged());
-        holder.project_pleadge.append("Pleadge - $ " + stringPledged);
-        holder.project_backers.append("Backers - " + projectsModel.getNumBackers());
-        String stringSNo = Integer.toString(projectsModel.getSNo());
-        holder.project_sNo.append("No. of Days to GO - " + stringSNo);
-
+        String stringPledged = "Pleadge :" + projectsModel.getAmtPledged();
+        holder.project_pleadge.setText(stringPledged);
+        holder.project_backers.setText(String.format("backers :%s", projectsModel.getNumBackers()));
+        String stringSNo = "S no :" + projectsModel.getSNo();
+        holder.project_sNo.setText(stringSNo);
         holder.itemView.setOnClickListener(v -> onMyAdapterItemClickListener.onItemClicked(position));
-
     }
 
     @Override

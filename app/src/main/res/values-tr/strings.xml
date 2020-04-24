@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Son versiyon</string>
+    <string name="app_name">Developer Challenge</string>
     <string name="auto_complete_text_view">İsim ile ara</string>
     <string name="example_string">Örnek metin</string>
     <string name="example_text">Örnek metin</string>
@@ -8,7 +8,8 @@
     <string name="project_name">Proje ismi</string>
     <string name="project_pleadge">Proje Sözü</string>
     <string name="project_sNo">Proje tarihi</string>
-    <string name="lbl_blurb">Blurb</string>
+    <string name="lbl_blurb">Açıklama</string>
     <string name="lbl_location">Konum</string>
-    <string name="lbl_state">State</string>
+    <string name="lbl_state">Eyalet</string>
+    <string name="Blurb">blurb</string>
 </resources>

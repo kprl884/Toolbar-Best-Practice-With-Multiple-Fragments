@@ -7,17 +7,33 @@
     android:background="@android:color/holo_orange_light"
     tools:context=".DetailActivity">
 
-    <Button
-        android:id="@+id/detail_btn_back"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="2dp"
-        android:background="@drawable/back"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/detail_toolbar_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/detail_layout_title"
+
+        android:id="@+id/detail_tv_lbl_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -26,21 +42,21 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/detail_btn_back"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_toolbar"
         tools:text="Project Title" />
 
     <TextView
         android:id="@+id/detail_tv_lbl_blurb"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:text="@string/lbl_blurb"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/detail_layout_location"
+        app:layout_constraintEnd_toStartOf="@id/detail_tv_blurb"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_btn_back" />
+        app:layout_constraintTop_toTopOf="@id/detail_tv_blurb" />
 
     <TextView
         android:id="@+id/detail_tv_blurb"
@@ -49,63 +65,62 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:paddingStart="20dp"
-        android:paddingTop="10dp"
         android:paddingEnd="30dp"
-        android:text="@string/example_string"
+        tools:text="@string/example_string"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/detail_tv_location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_blurb"
-        app:layout_constraintTop_toBottomOf="@+id/detail_layout_title" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_title" />
 
     <TextView
-        android:id="@+id/detail_layout_location"
+        android:id="@+id/detail_tv_lbl_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lbl_location"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/detail_layout_state"
+        app:layout_constraintEnd_toStartOf="@id/detail_tv_location"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_blurb" />
+        app:layout_constraintTop_toTopOf="@id/detail_tv_location" />
 
     <TextView
         android:id="@+id/detail_tv_location"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/detail_tv_state"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/detail_layout_location"
+        app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_location"
         app:layout_constraintTop_toBottomOf="@+id/detail_tv_blurb"
         tools:text="Istanbul" />
 
     <TextView
-        android:id="@+id/detail_layout_state"
+        android:id="@+id/detail_tv_lbl_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lbl_state"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/detail_tv_state"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_layout_location" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_location"
+        app:layout_constraintTop_toTopOf="@id/detail_tv_state" />
 
     <TextView
         android:id="@+id/detail_tv_state"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/detail_layout_state"
+        app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_state"
         app:layout_constraintTop_toBottomOf="@+id/detail_tv_location"
         tools:text="DE" />
 
