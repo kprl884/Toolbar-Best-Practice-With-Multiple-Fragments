@@ -4,11 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-
+    FragmentManager manager;
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
     private RecyclerView projects_recycler_view;
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        manager = getSupportFragmentManager();
 
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -61,9 +66,16 @@ public class MainActivity extends AppCompatActivity {
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.this);
                 projects_recycler_view.setLayoutManager(mLayoutManager);
                 OnMyAdapterItemClickListener clickListener = pos -> {
-                    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                    intent.putExtra("projectObject", projectsModels.get(pos));
-                    startActivity(intent);
+
+                    findViewById(R.id.projects_recyclerV).setVisibility(View.INVISIBLE);
+
+                    DetailFragment detailFragment = new DetailFragment();
+                    FragmentTransaction transaction = manager.beginTransaction();
+
+                    detailFragment.sendProjectObject(projectsModels.get(pos));
+                    transaction.replace(R.id.container , detailFragment, "fragDetail");
+                    transaction.commit();
+
                 };
 
                 projectsAdapter = new ProjectsAdapter(projectsModels, clickListener);
