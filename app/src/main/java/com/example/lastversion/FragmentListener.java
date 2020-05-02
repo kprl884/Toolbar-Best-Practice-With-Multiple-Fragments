@@ -1,4 +1,9 @@
 package com.example.lastversion;
 
-public interface FragmentListener {
+public interface FragmentListener
+{
+
+    void sendProjectModels(ProjectsModel projectsModel);
+
 }
+
