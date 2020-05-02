@@ -1,6 +1,5 @@
 package com.example.lastversion;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,9 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,11 +22,21 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ActivityFragment extends Fragment {
+public class ActivityFragment extends BaseFragment {
 
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
     private RecyclerView projects_recycler_view;
+    public static String TAG = ActivityFragment.class.getSimpleName();
+
+    public static ActivityFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        ActivityFragment fragment = new ActivityFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -39,6 +45,7 @@ public class ActivityFragment extends Fragment {
 
         projects_recycler_view = view.findViewById(R.id.projects_recyclerV);
         getProjectResponse();
+        // TODO: 2.05.2020 MainActivity toolbarini guncelle
 
         return view;
     }
@@ -60,23 +67,11 @@ public class ActivityFragment extends Fragment {
                 assert response.body() != null;
                 projectsModels = new ArrayList<>(response.body());
 
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mainActivity);
                 projects_recycler_view.setLayoutManager(mLayoutManager);
 
-                    OnMyAdapterItemClickListener clickListener = pos -> {
-                    FragmentManager manager = getFragmentManager();
-                    DetailsFragment fragmentDetails = new DetailsFragment();
-                    assert manager != null;
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.replace(R.id.frame_layout, fragmentDetails, "fragActivity");
-
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("ProjectsInfo", projectsModels.get(pos));
-                    fragmentDetails.setArguments(bundle);
-
-                    transaction.addToBackStack("addFragDetails");
-                    transaction.commit();
-                };
+                OnMyAdapterItemClickListener clickListener = pos ->
+                        mainActivity.addFragment(DetailsFragment.newInstance(projectsModels.get(pos)), DetailsFragment.TAG);
 
                 projectsAdapter = new ProjectsAdapter(projectsModels, clickListener);
 
@@ -86,7 +81,7 @@ public class ActivityFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<ProjectsModel>> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mainActivity, t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("Error", Objects.requireNonNull(t.getMessage()));
             }
         });

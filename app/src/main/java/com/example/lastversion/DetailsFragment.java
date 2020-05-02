@@ -17,11 +17,21 @@ import android.widget.TextView;
  */
 public class DetailsFragment extends Fragment {
 
-    TextView detail_layout_title, detail_layout_blurb, detail_tv_blurb, detail_layout_location
-            , detail_tv_location, detail_layout_state, detail_tv_state;
+    // TODO: 2.05.2020 Hicbir zaman view objelerini field olarak tanimlama
 
-    public DetailsFragment() {
-        // Required empty public constructor
+    private TextView detail_tv_state;
+
+    public static String TAG = DetailsFragment.class.getSimpleName();
+
+    public static DetailsFragment newInstance(ProjectsModel project) {
+
+        Bundle args = new Bundle();
+
+        args.putParcelable("ProjectsInfo", project);
+
+        DetailsFragment fragment = new DetailsFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
@@ -30,15 +40,16 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_details, container, false);
 
-        detail_layout_title = v.findViewById(R.id.detail_tv_lbl_title);
-        detail_layout_blurb = v.findViewById(R.id.detail_tv_lbl_blurb);
-        detail_tv_blurb = v.findViewById(R.id.detail_tv_blurb);
-        detail_layout_location = v.findViewById(R.id.detail_tv_lbl_location);
-        detail_tv_location = v.findViewById(R.id.detail_tv_location);
-        detail_layout_state = v.findViewById(R.id.detail_tv_lbl_state);
+        TextView detail_layout_title = v.findViewById(R.id.detail_tv_lbl_title);
+        TextView detail_layout_blurb = v.findViewById(R.id.detail_tv_lbl_blurb);
+        TextView detail_tv_blurb = v.findViewById(R.id.detail_tv_blurb);
+        TextView detail_layout_location = v.findViewById(R.id.detail_tv_lbl_location);
+        TextView detail_tv_location = v.findViewById(R.id.detail_tv_location);
+        TextView detail_layout_state = v.findViewById(R.id.detail_tv_lbl_state);
         detail_tv_state = v.findViewById(R.id.detail_tv_state);
 
-
+        // TODO: 2.05.2020 yine mainActivity'deki toobarin title'ini proje ismi olarak guncelle
+        // Back butonu gelecek
         Bundle bundle = this.getArguments();
         ProjectsModel projectsModel = null;
         if (bundle != null) {
