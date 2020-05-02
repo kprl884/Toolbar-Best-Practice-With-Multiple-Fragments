@@ -11,6 +11,9 @@ Renkler hardcoded. Onlar duzeltilecek
 ActivityFragment ismi degismeli. Home ya da List Fragment olarak isimlendirebilirsin.
 Todolar kontrol edilecek
 
+3- Fragmentlar databinding ile olusturulacak(Icindeki adapterlar da dahil olmak uzere)
+4- Dosya yapisi zipdeki gibi olacak(Layouts haric)
+
 
 
 -------------------------------------------------------------------------------------------------------------------
