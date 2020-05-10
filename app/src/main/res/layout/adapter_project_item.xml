@@ -60,7 +60,6 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/project_backers"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toBottomOf="@id/project_name" />
 
             <TextView

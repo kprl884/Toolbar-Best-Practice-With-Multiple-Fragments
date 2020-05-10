@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         replaceFragment(HomeFragment.newInstance(), HomeFragment.TAG);
 
-
     }
 
     public void addFragment(Fragment fragment, String fragmentTag) {

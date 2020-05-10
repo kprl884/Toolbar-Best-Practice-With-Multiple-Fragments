@@ -13,12 +13,16 @@ Todolar kontrol edilecek
 
 
 Yeni notlar - 3
-1 - Toolbar problemi duzeltilecek
-2 - Onceki notlara bakmadik. Onlar tamamlanacak
+//1 - Toolbar problemi duzeltilecek
+//2 - Onceki notlara bakmadik. Onlar tamamlanacak
 3 - Adapter'daki eksik bilgiler tamamlanacak. Su an sadece title yaziyor.
-4 - fragment_activity ismi duzaeltilecek. HomeFragment'a gore ayarlanacak.
+//4 - fragment_activity ismi duzaeltilecek. HomeFragment'a gore ayarlanacak.
 5- MainActivity(include'i unutmadan) ve HomeFragment da databinding'e cevrilecek
-6 - textColorlar android:color uzerinden degil kendi tanimladigin colorlar uzerinden verilecek
+//6 - textColorlar android:color uzerinden degil kendi tanimladigin colorlar uzerinden verilecek
+
+//SON
+//toolbar textSize auto olmuyor
+//uygulama yavaş geri giderken 1 saniye gecikmeli
 
 
 

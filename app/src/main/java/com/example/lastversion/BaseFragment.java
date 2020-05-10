@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
@@ -19,24 +20,23 @@ public class BaseFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         mainActivity = ((MainActivity) context);
-
-        String titleToolbar = String.valueOf(R.string.app_name);
-
-        updateToolbar(titleToolbar,false);
+        updateToolbar("",false);
     }
 
-    protected void updateToolbar(String toolbarTitle, boolean isBack) {
+    protected void updateToolbar(String s, boolean b) {
+        android.widget.Toolbar toolbar =  mainActivity.findViewById(R.id.toolbar_include);
+        Objects.requireNonNull(getActivity()).setActionBar(toolbar);
+        //Button backButtonToolbar = getActivity().findViewById(R.id.toolbar_back_btn);
+        Button backButtonToolbar = toolbar.findViewById(R.id.toolbar_back_btn);
 
-        Toolbar toolbar = mainActivity.findViewById(R.id.toolbar_layout);
-        mainActivity.setSupportActionBar(toolbar);
-        /*Button toolbar_back_btn = toolbar.findViewById(R.id.toolbar_back_btn);
-        TextView toolbar_title = toolbar.findViewById(R.id.toolbar_title);
-        toolbar_title.setText(toolbarTitle);
-
-        if(isBack){
-            toolbar_back_btn.setVisibility(View.VISIBLE);
+        if(b){
+            backButtonToolbar.setVisibility(View.VISIBLE);
+            backButtonToolbar.setOnClickListener(v -> getActivity().onBackPressed());
         }else {
-            toolbar_back_btn.setVisibility(View.INVISIBLE);
-        }*/
+            backButtonToolbar.setVisibility(View.INVISIBLE);
+        }
+
+
     }
+
 }

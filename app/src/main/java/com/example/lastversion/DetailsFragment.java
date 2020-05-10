@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.lastversion.databinding.FragmentDetailsBinding;
 import com.example.lastversion.models.ProjectsModel;
+
+import java.util.Objects;
 
 
 /**
@@ -33,7 +37,6 @@ public class DetailsFragment extends BaseFragment {
         return fragment;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,10 +47,9 @@ public class DetailsFragment extends BaseFragment {
             if (bundle != null) {
                 projectsModel = bundle.getParcelable("ProjectsInfo");
                 binding.setDataDetail(projectsModel);
-                String title = projectsModel.getTitle();
-                if (title != null) {
-                    String titleProject = projectsModel.getTitle();
-                    updateToolbar(titleProject, true);
+                String titleProject = projectsModel.getTitle();
+                if (titleProject != null) {
+                    updateToolbar(titleProject,true);
                 }
             }
         }

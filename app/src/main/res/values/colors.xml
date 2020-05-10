@@ -6,5 +6,6 @@
     <color name="colorHomeBg">#4451A0</color>
     <color name="colorToolbarBackGround">#4451A0</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000</color>
 
 </resources>
