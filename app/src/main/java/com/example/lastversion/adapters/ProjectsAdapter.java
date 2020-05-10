@@ -1,21 +1,20 @@
-package com.example.lastversion.adapter;
+package com.example.lastversion.adapters;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastversion.OnMyAdapterItemClickListener;
-import com.example.lastversion.model.ProjectsModel;
-import com.example.lastversion.R;
+import com.example.lastversion.databinding.AdapterProjectItemBinding;
+import com.example.lastversion.models.ProjectsModel;
+import com.example.lastversion.view.ProjectViewHolder;
 
 import java.util.ArrayList;
 
 
-public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.DetailViewHolder> {
+public class ProjectsAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     private ArrayList<ProjectsModel> projectsModels;
 
     public OnMyAdapterItemClickListener onMyAdapterItemClickListener;
@@ -25,16 +24,33 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
         this.onMyAdapterItemClickListener = onMyAdapterItemClickListener;
     }
 
+
     @NonNull
     @Override
-    public ProjectsAdapter.DetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_project_item
-                , parent, false);
-
-        return new ProjectsAdapter.DetailViewHolder(view);
+    public ProjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        AdapterProjectItemBinding binding = AdapterProjectItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new ProjectViewHolder(binding);
     }
 
     @Override
+    public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
+        holder.setItem(projectsModels.get(position), position, onMyAdapterItemClickListener);
+
+    }
+
+
+    /*   @NonNull
+        @Override
+        public ProjectsAdapter.DetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_project_item
+                    , parent, false);
+
+            return new ProjectsAdapter.DetailViewHolder(view);
+        }
+    */
+
+
+    /*   @Override
     public void onBindViewHolder(@NonNull ProjectsAdapter.DetailViewHolder holder, int position) {
 
         ProjectsModel projectsModel = projectsModels.get(position);
@@ -46,13 +62,13 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
         holder.project_sNo.setText(stringSNo);
         holder.itemView.setOnClickListener(v -> onMyAdapterItemClickListener.onItemClicked(position));
     }
-
+*/
     @Override
     public int getItemCount() {
         return projectsModels.size();
     }
 
-
+    /*// TODO: 10.05.2020 ProjectViewHolder olacak
     public class DetailViewHolder extends RecyclerView.ViewHolder {
         private TextView project_name, project_pleadge, project_backers, project_sNo;
 
@@ -64,5 +80,5 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Detail
             project_sNo = itemView.findViewById(R.id.project_sNo);
 
         }
-    }
+    }*/
 }

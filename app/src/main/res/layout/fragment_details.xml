@@ -53,7 +53,7 @@
             android:paddingStart="20dp"
             android:paddingEnd="30dp"
             android:textStyle="italic"
-            android:text="@{dataDetail.blurb}"
+            android:text="@{data_detail.blurb}"
             app:layout_constraintBottom_toTopOf="@+id/detail_tv_location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_blurb"
@@ -79,7 +79,7 @@
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textStyle="italic"
-            android:text="@{dataDetail.location}"
+            android:text="@{data_detail.location}"
             app:layout_constraintBottom_toTopOf="@+id/detail_tv_state"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_location"
@@ -110,7 +110,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_state"
             app:layout_constraintTop_toBottomOf="@+id/detail_tv_location"
-            android:text="@{dataDetail.state}"
+            android:text="@{data_detail.state}"
             tools:text="DE" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

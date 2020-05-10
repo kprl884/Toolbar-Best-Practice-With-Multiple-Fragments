@@ -1,18 +1,24 @@
 Yeni notlar
 1- Toolbar, ActionBar ve bunun üzerindeki itemlar nedir ogren ve hem ana sayfaya hem de detay sayfasina toolbar uygula.
 Detaydaki back butonu toolbar'a gececek. Proje adi da toolbar da title olarak gorunecek.
-
 2- Detaydaki sagdaki textler hafif yukarda kaliyor. Soldaki labellara gore hizalanacak
 
 
 Yeni notlar
 
-Renkler hardcoded. Onlar duzeltilecek
 ActivityFragment ismi degismeli. Home ya da List Fragment olarak isimlendirebilirsin.
 Todolar kontrol edilecek
 
 3- Fragmentlar databinding ile olusturulacak(Icindeki adapterlar da dahil olmak uzere)
-4- Dosya yapisi zipdeki gibi olacak(Layouts haric)
+
+
+Yeni notlar - 3
+1 - Toolbar problemi duzeltilecek
+2 - Onceki notlara bakmadik. Onlar tamamlanacak
+3 - Adapter'daki eksik bilgiler tamamlanacak. Su an sadece title yaziyor.
+4 - fragment_activity ismi duzaeltilecek. HomeFragment'a gore ayarlanacak.
+5- MainActivity(include'i unutmadan) ve HomeFragment da databinding'e cevrilecek
+6 - textColorlar android:color uzerinden degil kendi tanimladigin colorlar uzerinden verilecek
 
 
 
