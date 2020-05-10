@@ -28,6 +28,8 @@ public class BaseFragment extends Fragment {
         Objects.requireNonNull(getActivity()).setActionBar(toolbar);
         //Button backButtonToolbar = getActivity().findViewById(R.id.toolbar_back_btn);
         Button backButtonToolbar = toolbar.findViewById(R.id.toolbar_back_btn);
+        TextView titleToolbar = toolbar.findViewById(R.id.toolbar_title);
+        titleToolbar.setText(s);
 
         if(b){
             backButtonToolbar.setVisibility(View.VISIBLE);
