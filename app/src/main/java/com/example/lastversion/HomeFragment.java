@@ -11,10 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastversion.adapters.ProjectsAdapter;
+import com.example.lastversion.databinding.FragmentHomeBinding;
 import com.example.lastversion.models.ProjectsModel;
 
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class HomeFragment extends BaseFragment {
 
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
+    private FragmentHomeBinding binding;
+
     private RecyclerView projects_recycler_view;
     public static String TAG = HomeFragment.class.getSimpleName();
 
@@ -46,14 +50,21 @@ public class HomeFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        if(binding==null){
+            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+
+            projects_recycler_view = binding.projectsRecyclerV;
+            getProjectResponse();
+            String appName = getString(R.string.app_name);
+            updateToolbar(appName,false);
+        }
+
+        /*View view = inflater.inflate(R.layout.fragment_home, container, false);
         projects_recycler_view = view.findViewById(R.id.projects_recyclerV);
-        getProjectResponse();
-        String appName = getString(R.string.app_name);
-        updateToolbar(appName,false);
-
-        return view;
+        return view;*/
+        assert binding != null;
+        return binding.getRoot();
     }
 
     private void getProjectResponse() {

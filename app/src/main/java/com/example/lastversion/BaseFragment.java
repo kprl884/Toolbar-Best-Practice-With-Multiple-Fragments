@@ -26,7 +26,6 @@ public class BaseFragment extends Fragment {
     protected void updateToolbar(String s, boolean b) {
         android.widget.Toolbar toolbar =  mainActivity.findViewById(R.id.toolbar_include);
         Objects.requireNonNull(getActivity()).setActionBar(toolbar);
-        //Button backButtonToolbar = getActivity().findViewById(R.id.toolbar_back_btn);
         Button backButtonToolbar = toolbar.findViewById(R.id.toolbar_back_btn);
         TextView titleToolbar = toolbar.findViewById(R.id.toolbar_title);
         titleToolbar.setText(s);

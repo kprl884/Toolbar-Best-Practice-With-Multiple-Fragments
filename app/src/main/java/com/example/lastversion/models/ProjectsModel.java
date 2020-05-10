@@ -253,6 +253,4 @@ public class ProjectsModel implements Parcelable {
         }
     };
 
-
-
 }

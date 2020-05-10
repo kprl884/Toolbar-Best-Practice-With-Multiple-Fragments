@@ -47,6 +47,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="@{project.title}"
+
                 app:layout_constraintBottom_toTopOf="@id/project_pleadge"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
