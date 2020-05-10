@@ -1,4 +1,4 @@
-package com.example.lastversion;
+package com.example.lastversion.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.lastversion.OnMyAdapterItemClickListener;
+import com.example.lastversion.model.ProjectsModel;
+import com.example.lastversion.R;
 
 import java.util.ArrayList;
 

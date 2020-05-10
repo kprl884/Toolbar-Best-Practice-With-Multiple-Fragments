@@ -1,101 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/detail_tv_lbl_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:gravity="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Project Title" />
+    <data>
 
-    <TextView
-        android:id="@+id/detail_tv_lbl_blurb"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:text="@string/lbl_blurb"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/detail_tv_blurb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/detail_tv_blurb" />
+        <variable
+            name="data_detail"
+            type="com.example.lastversion.models.ProjectsModel" />
 
-    <TextView
-        android:id="@+id/detail_tv_blurb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="30dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/detail_tv_location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_blurb"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_title"
-        tools:text="@string/example_string" />
+    </data>
 
-    <TextView
-        android:id="@+id/detail_tv_lbl_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_location"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/detail_tv_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/detail_tv_location" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailsFragment">
 
-    <TextView
-        android:id="@+id/detail_tv_location"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/detail_tv_state"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_location"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_blurb"
-        tools:text="Istanbul" />
+        <TextView
+            android:id="@+id/detail_tv_lbl_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Project Title" />
 
-    <TextView
-        android:id="@+id/detail_tv_lbl_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_state"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/detail_tv_state"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_location"
-        app:layout_constraintTop_toTopOf="@id/detail_tv_state" />
+        <TextView
+            android:id="@+id/detail_tv_lbl_blurb"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/lbl_blurb"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/detail_tv_blurb"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/detail_tv_blurb" />
 
-    <TextView
-        android:id="@+id/detail_tv_state"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_state"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_location"
-        tools:text="DE" />
+        <TextView
+            android:id="@+id/detail_tv_blurb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="30dp"
+            android:textStyle="italic"
+            android:text="@{dataDetail.blurb}"
+            app:layout_constraintBottom_toTopOf="@+id/detail_tv_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_blurb"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_title"
+            tools:text="@string/example_string" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/detail_tv_lbl_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_location"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/detail_tv_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/detail_tv_location" />
+
+        <TextView
+            android:id="@+id/detail_tv_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textStyle="italic"
+            android:text="@{dataDetail.location}"
+            app:layout_constraintBottom_toTopOf="@+id/detail_tv_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_location"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tv_blurb"
+            tools:text="Istanbul" />
+
+        <TextView
+            android:id="@+id/detail_tv_lbl_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_state"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/detail_tv_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tv_lbl_location"
+            app:layout_constraintTop_toTopOf="@id/detail_tv_state" />
+
+        <TextView
+            android:id="@+id/detail_tv_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_tv_lbl_state"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tv_location"
+            android:text="@{dataDetail.state}"
+            tools:text="DE" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lastversion.adapters.ProjectsAdapter;
+import com.example.lastversion.models.ProjectsModel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,18 +25,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ActivityFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment {
 
     ArrayList<ProjectsModel> projectsModels;
     private ProjectsAdapter projectsAdapter;
     private RecyclerView projects_recycler_view;
-    public static String TAG = ActivityFragment.class.getSimpleName();
+    public static String TAG = HomeFragment.class.getSimpleName();
 
-    public static ActivityFragment newInstance() {
+    public static HomeFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        ActivityFragment fragment = new ActivityFragment();
+        HomeFragment fragment = new HomeFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,7 +48,8 @@ public class ActivityFragment extends BaseFragment {
 
         projects_recycler_view = view.findViewById(R.id.projects_recyclerV);
         getProjectResponse();
-        // TODO: 2.05.2020 MainActivity toolbarini guncelle
+        updateToolbar("aa", false);
+
 
         return view;
     }
