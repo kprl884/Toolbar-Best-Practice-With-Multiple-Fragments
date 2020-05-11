@@ -55,8 +55,13 @@ public class HomeFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
 
             projects_recycler_view = binding.projectsRecyclerV;
-            getProjectResponse();
+
             String appName = getString(R.string.app_name);
+            updateToolbarBindingHome(appName);
+
+            getProjectResponse();
+
+
             //updateToolbar(appName,false);
         }
 
@@ -83,6 +88,10 @@ public class HomeFragment extends BaseFragment {
 
                 assert response.body() != null;
                 projectsModels = new ArrayList<>(response.body());
+                /*
+                for (int i = 0;i<response.body().size(); i++){
+                    updateToolbarBinding(projectsModels.get(i));
+                }*/
 
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mainActivity);
                 projects_recycler_view.setLayoutManager(mLayoutManager);

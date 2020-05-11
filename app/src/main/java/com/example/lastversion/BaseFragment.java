@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.lastversion.databinding.ActivityMainBinding;
 import com.example.lastversion.databinding.ToolbarLayoutBinding;
+import com.example.lastversion.models.ProjectsModel;
 
 import java.util.Objects;
 
@@ -24,7 +25,6 @@ public class BaseFragment extends Fragment {
 
     protected MainActivity mainActivity;
     ActivityMainBinding binding;
-    android.widget.Toolbar toolbar;
     Button backButtonToolbar;
     TextView titleToolbar;
 
@@ -38,26 +38,38 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (binding == null) {
-            binding = DataBindingUtil.inflate(inflater, R.layout.activity_main, container, false);
-            toolbar = binding.toolbarInclude.toolbarLayout;
+            binding = DataBindingUtil.inflate(inflater, R.layout.toolbar_layout, container, false);
+            ProjectsModel a = new ProjectsModel("a",1,"a",2);
             Objects.requireNonNull(getActivity()).setActionBar(binding.toolbarInclude.toolbarLayout);
+
+
         }
-/*
-    protected void updateToolbar(String s, boolean b) {
-         backButtonToolbar = toolbar.findViewById(R.id.toolbar_back_btn);
-         titleToolbar = toolbar.findViewById(R.id.toolbar_title);
-        titleToolbar.setText(s);
-        if(b){
+        return binding.getRoot();}
+
+        protected void updateToolbarBindingHome(String appName){
+            //binding.toolbarInclude.toolbarBackBtn.setVisibility(View.GONE);
+            //binding.toolbarInclude.toolbarTitle.setText(appName);
+        }
+
+        protected void updateToolbarBindingPM(ProjectsModel projectsModel){
+            //binding.setProje(new ProjectsModel(projectsModel.getTitle(),projectsModel.getAmtPledged(),projectsModel.getNumBackers(),projectsModel.getSNo()));
+            //binding.toolbarInclude.toolbarTitle.setText(projectsModel.getTitle());
             //binding.toolbarInclude.toolbarBackBtn.setVisibility(View.VISIBLE);
-            //backButtonToolbar.setVisibility(View.VISIBLE);
-            //backButtonToolbar.setOnClickListener(v -> getActivity().onBackPressed());
+        }
+
+    protected void updateToolbar(String s, boolean b) {
+
+        androidx.appcompat.widget.Toolbar toolbar = mainActivity.findViewById(R.id.toolbar_include);
+        mainActivity.setSupportActionBar(toolbar);
+        Button toolbar_back_btn = toolbar.findViewById(R.id.toolbar_back_btn);
+        TextView toolbar_title = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_title.setText(s);
+        if(b){
+            toolbar_back_btn.setVisibility(View.VISIBLE);
         }else {
-            //binding.toolbarInclude.toolbarBackBtn.setVisibility(View.INVISIBLE);
-            //backButtonToolbar.setVisibility(View.INVISIBLE);
+            toolbar_back_btn.setVisibility(View.INVISIBLE);
         }
     }
-    */
-        return binding.getRoot();
-    }
+
 }
 
