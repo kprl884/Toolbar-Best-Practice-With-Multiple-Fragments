@@ -16,7 +16,7 @@ Yeni notlar - 3
 //1 - Toolbar problemi duzeltilecek
 //2 - Onceki notlara bakmadik. Onlar tamamlanacak
 3 - Adapter'daki eksik bilgiler tamamlanacak. Su an sadece title yaziyor.
-//4 - fragment_activity ismi duzaeltilecek. HomeFragment'a gore ayarlanacak.
+//4 - fragment_activity ismi düzeltilecek. HomeFragment'a gore ayarlanacak.
 5.1- MainActivity(include'i unutmadan)
 //5.2-ve HomeFragment da databinding'e cevrilecek
 //6 - textColorlar android:color uzerinden degil kendi tanimladigin colorlar uzerinden verilecek

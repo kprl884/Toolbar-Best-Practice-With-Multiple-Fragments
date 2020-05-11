@@ -49,7 +49,6 @@ public class DetailsFragment extends BaseFragment {
                 binding.setDataDetail(projectsModel);
                 String titleProject = projectsModel.getTitle();
                 if (titleProject != null) {
-                    updateToolbar(titleProject,true);
                 }
             }
         }

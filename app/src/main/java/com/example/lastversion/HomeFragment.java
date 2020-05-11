@@ -57,7 +57,7 @@ public class HomeFragment extends BaseFragment {
             projects_recycler_view = binding.projectsRecyclerV;
             getProjectResponse();
             String appName = getString(R.string.app_name);
-            updateToolbar(appName,false);
+            //updateToolbar(appName,false);
         }
 
         /*View view = inflater.inflate(R.layout.fragment_home, container, false);
