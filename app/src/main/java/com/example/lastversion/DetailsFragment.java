@@ -48,7 +48,7 @@ public class DetailsFragment extends BaseFragment {
                 projectsModel = bundle.getParcelable("ProjectsInfo");
                 binding.setDataDetail(projectsModel);
                 String titleProject = projectsModel.getTitle();
-                updateToolbarBindingPM(projectsModel);
+                //updateToolbarBindingPM(projectsModel);
             }
         }
         return binding.getRoot();
