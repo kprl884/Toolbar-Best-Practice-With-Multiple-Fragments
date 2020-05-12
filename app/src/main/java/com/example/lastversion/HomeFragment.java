@@ -55,21 +55,26 @@ public class HomeFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
 
             projects_recycler_view = binding.projectsRecyclerV;
-
-            String appName = getString(R.string.app_name);
-            updateToolbarBindingHome(appName);
-
             getProjectResponse();
-
-
-            //updateToolbar(appName,false);
         }
-
-        /*View view = inflater.inflate(R.layout.fragment_home, container, false);
-        projects_recycler_view = view.findViewById(R.id.projects_recyclerV);
-        return view;*/
-        assert binding != null;
+        // TODO: 12.05.2020 Assert kullanma
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setToolbarVisibility();
+    }
+
+    private void setToolbarVisibility() {
+        // TODO: 12.05.2020 Neden onResume'da yaptim?
+
+        // TODO: 12.05.2020 Neden baseFragment'ta degil de ayri ayri fragmentlarda bu metodu tanimladim
+        String appName = getString(R.string.app_name);
+        // TODO: 12.05.2020 Neden toolbarLayout icindeki variable tipini projectmodel'den string'e cevirdim
+        mainActivity.binding.toolbarLayout.setLabelText(appName);
+        mainActivity.binding.toolbarLayout.toolbarBackBtn.setVisibility(View.GONE);
     }
 
     private void getProjectResponse() {

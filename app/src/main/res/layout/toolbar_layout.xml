@@ -9,8 +9,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="toolbarProject"
-            type="com.example.lastversion.models.ProjectsModel" />
+            name="labelText"
+            type="String" />
     </data>
 
     <Toolbar
@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!--TODO bu back butonuna basildiginda geri gitmesini tetiklemen lazim-->
             <Button
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -32,22 +33,23 @@
                 android:background="@drawable/back"
                 android:layout_width="36dp"
                 android:layout_height="36dp" />
-
+            <!--Todo Buradaki textview constraintlerini neden degistirdim?-->
             <TextView
                 android:id="@+id/toolbar_title"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:ellipsize="middle"
-                android:gravity="start"
+                android:gravity="center"
                 android:padding="1dp"
-                android:textStyle="bold|italic"
-                android:text='@{toolbarProject.title ?? ""}'
-                app:layout_constraintBottom_toBottomOf="@id/toolbar_back_btn"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:text='@{labelText}'
+                tools:text="Title"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/toolbar_back_btn"
-                app:layout_constraintTop_toTopOf="@id/toolbar_back_btn"
-                tools:text="de" />
+                app:layout_constraintTop_toTopOf="parent"
+                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

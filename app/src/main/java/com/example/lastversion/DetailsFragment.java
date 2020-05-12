@@ -5,16 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.lastversion.databinding.FragmentDetailsBinding;
 import com.example.lastversion.models.ProjectsModel;
-
-import java.util.Objects;
 
 
 /**
@@ -25,6 +21,7 @@ public class DetailsFragment extends BaseFragment {
     public static String TAG = DetailsFragment.class.getSimpleName();
 
     private FragmentDetailsBinding binding;
+    private ProjectsModel projectsModel;
 
     public static DetailsFragment newInstance(ProjectsModel project) {
 
@@ -43,15 +40,26 @@ public class DetailsFragment extends BaseFragment {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false);
             Bundle bundle = getArguments();
-            ProjectsModel projectsModel;
             if (bundle != null) {
                 projectsModel = bundle.getParcelable("ProjectsInfo");
                 binding.setDataDetail(projectsModel);
-                String titleProject = projectsModel.getTitle();
-                //updateToolbarBindingPM(projectsModel);
             }
         }
         return binding.getRoot();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setToolbarVisibility();
+    }
+
+    private void setToolbarVisibility() {
+        // TODO: 12.05.2020 Neden titleProject null mi diye kontrol ettim?
+        String titleProject = projectsModel.getTitle();
+        if (titleProject != null) {
+            mainActivity.binding.toolbarLayout.setLabelText(titleProject);
+            mainActivity.binding.toolbarLayout.toolbarBackBtn.setVisibility(View.VISIBLE);
+        }
+    }
 }
