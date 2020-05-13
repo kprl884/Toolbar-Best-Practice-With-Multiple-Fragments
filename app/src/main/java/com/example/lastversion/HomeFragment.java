@@ -69,10 +69,17 @@ public class HomeFragment extends BaseFragment {
 
     private void setToolbarVisibility() {
         // TODO: 12.05.2020 Neden onResume'da yaptim?
+        // on create çağırma ve tanımlama işlermleri varsa bundle işlemleri yapılır
+        //attach createView start resume
+        //create içinde bundle geliyor loading vs olabilir proje oluştuktan sonra resume olup toolbar update edilir
+        //animasyon başlatmak veya çzel aygıtlar içinde iyi bir yerdir
 
         // TODO: 12.05.2020 Neden baseFragment'ta degil de ayri ayri fragmentlarda bu metodu tanimladim
+        //Fragmentler özelleştikçe base fragmentte gereksiz bir yük oluyor
+        //bir de binding zaten base fragmentten bağımsız mainActivity de tanımlı doğrusal oulaşabiliyoruz çünkü main include toolbar
         String appName = getString(R.string.app_name);
         // TODO: 12.05.2020 Neden toolbarLayout icindeki variable tipini projectmodel'den string'e cevirdim
+        //R.string.app name ile çağırınca int değer saklıyor Resource 2string' de onu stringe cast etmek gerekiyor
         mainActivity.binding.toolbarLayout.setLabelText(appName);
         mainActivity.binding.toolbarLayout.toolbarBackBtn.setVisibility(View.GONE);
     }
@@ -93,10 +100,6 @@ public class HomeFragment extends BaseFragment {
 
                 assert response.body() != null;
                 projectsModels = new ArrayList<>(response.body());
-                /*
-                for (int i = 0;i<response.body().size(); i++){
-                    updateToolbarBinding(projectsModels.get(i));
-                }*/
 
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mainActivity);
                 projects_recycler_view.setLayoutManager(mLayoutManager);

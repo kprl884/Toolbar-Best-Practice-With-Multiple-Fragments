@@ -11,6 +11,7 @@
         <variable
             name="labelText"
             type="String" />
+
     </data>
 
     <Toolbar
@@ -33,13 +34,16 @@
                 android:background="@drawable/back"
                 android:layout_width="36dp"
                 android:layout_height="36dp" />
-            <!--Todo Buradaki textview constraintlerini neden degistirdim?-->
+            <!--Todo Buradaki textview constraintlerini neden degistirdim?
+            single eşittir true yaptım middle olduğu için ortadan kırptı start end
+            ellipsize title uzunluğuna göre layoutheilght aynı kalsın ama title görebilmek için-->
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
-                android:ellipsize="middle"
+                android:singleLine="true"
+                android:ellipsize="middle"  
                 android:gravity="center"
                 android:padding="1dp"
                 android:textStyle="bold"

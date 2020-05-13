@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-    <data>
-        <variable
-            name="proje"
-            type="com.example.lastversion.models.ProjectsModel" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
