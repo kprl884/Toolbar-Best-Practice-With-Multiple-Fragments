@@ -42,4 +42,5 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectViewHolder> {
     public int getItemCount() {
         return projectsModels.size();
     }
+
 }

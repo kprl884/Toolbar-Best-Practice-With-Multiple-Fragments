@@ -18,14 +18,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: 12.05.2020 Buradaki setContentView metodunu neden degistirdim?
-        //neden baseFragment içinde değil burada sorusuyla paralel buraya taşıdık ondan setContet i güncelledik buraya taşımamızın sebebi
-        //fragmentler çoğaldıkça ve özelleştikçe kod kalabalığı olmadan
-        //ben bunu FragmentBase içinde yapmaya çalışıyordum activity_main içindeki include erişmek için binding e burada bağlandı
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.toolbarLayout.toolbarBackBtn.setOnClickListener(v -> onBackPressed());
-        //setActionBar(binding.toolbar); neden kullanılmadı
-
         replaceFragment(HomeFragment.newInstance(), HomeFragment.TAG);
 
     }

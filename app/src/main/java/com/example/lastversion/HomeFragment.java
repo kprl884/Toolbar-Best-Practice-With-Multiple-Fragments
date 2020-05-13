@@ -53,37 +53,17 @@ public class HomeFragment extends BaseFragment {
 
         if(binding==null){
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
-
             projects_recycler_view = binding.projectsRecyclerV;
             getProjectResponse();
         }
-        // TODO: 12.05.2020 Assert kullanma
         return binding.getRoot();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        setToolbarVisibility();
+        setToolbarVisibility(getString(R.string.app_name), View.GONE);
     }
-
-    private void setToolbarVisibility() {
-        // TODO: 12.05.2020 Neden onResume'da yaptim?
-        // on create çağırma ve tanımlama işlermleri varsa bundle işlemleri yapılır
-        //attach createView start resume
-        //create içinde bundle geliyor loading vs olabilir proje oluştuktan sonra resume olup toolbar update edilir
-        //animasyon başlatmak veya çzel aygıtlar içinde iyi bir yerdir
-
-        // TODO: 12.05.2020 Neden baseFragment'ta degil de ayri ayri fragmentlarda bu metodu tanimladim
-        //Fragmentler özelleştikçe base fragmentte gereksiz bir yük oluyor
-        //bir de binding zaten base fragmentten bağımsız mainActivity de tanımlı doğrusal oulaşabiliyoruz çünkü main include toolbar
-        String appName = getString(R.string.app_name);
-        // TODO: 12.05.2020 Neden toolbarLayout icindeki variable tipini projectmodel'den string'e cevirdim
-        //R.string.app name ile çağırınca int değer saklıyor Resource 2string' de onu stringe cast etmek gerekiyor
-        mainActivity.binding.toolbarLayout.setLabelText(appName);
-        mainActivity.binding.toolbarLayout.toolbarBackBtn.setVisibility(View.GONE);
-    }
-
     private void getProjectResponse() {
 
         Retrofit retrofit = new Retrofit.Builder()

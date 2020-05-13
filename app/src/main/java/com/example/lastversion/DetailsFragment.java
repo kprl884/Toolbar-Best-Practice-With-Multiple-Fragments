@@ -56,15 +56,9 @@ DetailsFragment extends BaseFragment {
     }
 
     private void setToolbarVisibility() {
-        // TODO: 12.05.2020 Neden titleProject null mi diye kontrol ettim?
-        //null döndüğünü yerel olarak method içinde ilk defa kontrol edeceğiz
         String titleProject = projectsModel.getTitle();
         if (titleProject != null) {
-            mainActivity.binding.toolbarLayout.setLabelText(titleProject);
-            mainActivity.binding.toolbarLayout.toolbarBackBtn.setVisibility(View.VISIBLE);
-            //mainActivity.binding.toolbarLayout.toolbarBackBtn.setOnClickListener(v -> mainActivity.onBackPressed());
+            setToolbarVisibility(titleProject, View.VISIBLE);
         }
     }
-
-
 }
